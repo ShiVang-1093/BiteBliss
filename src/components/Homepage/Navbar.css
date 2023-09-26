@@ -1,0 +1,177 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #BCE7FF;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: orange;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #f5b921;
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+}
+
+.nav-logo img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+}
+
+.fa-code {
+  margin-left: 1rem;
+}
+
+.nav-item {
+  line-height: 40px;
+  margin-right: 1rem;
+}
+
+.nav-item:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.nav-item:hover:after {
+  width: 100%;
+  background: #ffdd40;
+}
+
+.nav-item.active {
+  color: #ffdd40;
+  border: 1px solid #ffdd40;
+}
+
+.nav-icon {
+  display: none;
+}
+
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ffdd40;
+}
+
+/* Mobile styles - show/hide components as needed */
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #fff;
+    position: absolute;
+    top: 80px;
+    left: -110%;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: #1f5156;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-item .active {
+    color: #ffdd40;
+    border: none;
+    background-color: transparent; /* Remove active background color on mobile */
+  }
+
+  .nav-links {
+    padding: 1.5rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-links:hover {
+    background-color: #ffdd40;
+    color: #1f5156;
+    border-radius: 0;
+  }
+
+  /* ... (previous CSS rules) */
+
+  .hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px; /* Adjust vertical alignment */
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ffdd40;
+  }
+
+  .mobile-menu-link {
+    grid-column: 2/4;
+    position: relative;
+    z-index: 99;
+  }
+
+  .mobile-menu-link {
+    background-color: #ffdd40;
+    height: 20rem;
+    display: grid;
+    grid-column: 2/5;
+    align-items: center;
+    padding-left: 3rem;
+    transition: all 2s linear;
+    transform-origin: top;
+  }
+}
