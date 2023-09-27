@@ -16,4 +16,5 @@ const Res = () => {
     </div>
   )
 }
+
 export default Res;
