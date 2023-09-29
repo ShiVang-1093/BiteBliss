@@ -1,0 +1,126 @@
+/* Define styles for the main container */
+.main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "footer";
+    background-color: orange; /* Change the background color to orange */
+    padding: 2rem;
+  }
+  
+  /* Style for the footer container */
+  .footer {
+    z-index: 1;
+    --footer-background: orange; /* Use orange color for the background */
+    min-height: 12rem;
+    background-color: var(--footer-background);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    align-items: center; /* Vertically center content */
+    padding: 2rem;
+    position: relative; /* Add this line */
+  }
+  
+  /* Style for the bubbles container */
+  .bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    background: var(--footer-background);
+    filter: url("#blob");
+    animation: bubble-move 4s linear infinite, bubble-size 4s linear infinite;
+    /* Bubble animations run continuously */
+  }
+  
+  /* Style for the bubble elements */
+  .bubble {
+    position: absolute;
+    left: var(--position, 50%);
+    background: var(--footer-background);
+    border-radius: 100%;
+    transform: translate(-50%, 100%);
+  }
+  
+  /* Style for the content container */
+  .content {
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 2rem;
+    background: var(--footer-background);
+    align-items: center; /* Vertically center content */
+    padding: 2rem;
+  }
+  
+  /* Style for the links and copyright text */
+  div > div > div > a {
+    color: #F5F7FA;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  /* Style for the social media icons */
+  .social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  .social-icon img {
+    width: 24px;
+    height: 24px;
+    color: orange; /* Set the icon color to orange */
+  }
+  
+  /* Keyframes for bubble animations */
+  @keyframes bubble-size {
+    0%, 75% {
+      width: var(--size, 4rem);
+      height: var(--size, 4rem);
+    }
+    100% {
+      width: 0rem;
+      height: 0rem;
+    }
+  }
+  
+  @keyframes bubble-move {
+    0% {
+      bottom: -4rem;
+    }
+    100% {
+      bottom: var(--distance, 10rem);
+    }
+  }
+  
+  /* Media query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .footer {
+      padding: 1rem; /* Adjust padding for smaller screens */
+    }
+  
+    .bubbles {
+      height: 0.5rem; /* Adjust bubble height for smaller screens */
+    }
+  
+    .content {
+      grid-template-columns: 1fr; /* Switch to a single column for smaller screens */
+    }
+  
+    /* Style for responsive navigation links */
+    div > div > div > a {
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+  }
+  

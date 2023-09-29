@@ -2,8 +2,14 @@
 .faq-container {
     font-family: Arial, sans-serif;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 2% auto;
     padding: 20px;
+  }
+
+  .faq-container h3{
+    text-align: center;
+    margin-bottom: 20px;
+
   }
   
   .faq-item {

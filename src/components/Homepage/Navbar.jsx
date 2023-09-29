@@ -28,7 +28,7 @@ const NavBar = () => {
             <NavLink
               exact
               to="/"
-              activeClassName="active"
+              activeClassName="nav-active"
               className="nav-links"
               onClick={() => setClick(false)}
             >
@@ -39,7 +39,7 @@ const NavBar = () => {
             <NavLink
               exact
               to="/Restaurants"
-              activeClassName="active"
+              activeClassName="nav-active"
               className="nav-links"
               onClick={() => setClick(false)}
             >
@@ -50,7 +50,7 @@ const NavBar = () => {
             <NavLink
               exact
               to="/About"
-              activeClassName="active"
+              activeClassName="nav-active"
               className="nav-links"
               onClick={() => setClick(false)}
             >
@@ -61,7 +61,7 @@ const NavBar = () => {
             <NavLink
               exact
               to="/Account"
-              activeClassName="active"
+              activeClassName="nav-active"
               className="nav-links"
               onClick={() => setClick(false)}
             >

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './ImageSlider.css'; // Adjust the CSS import path as needed
+import i1 from '../images/i1.webp';
+import i2 from '../images/i2.webp';
+// import i3 from '../images/i3.jpg';
+// import i4 from '../images/i4.jpg';
 
 const ImageSlider = () => {
   const [index, setIndex] = useState(0);
   const slides = [
-    { image: 'https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.webp?b=1&s=170667a&w=0&k=20&c=P3jIQq8gVqlXjd4kP2OrXYyzqEXSWCwwYtwrd81psDY=' }, // Replace with your food image URL
-    { image: 'https://cdn.pixabay.com/photo/2014/05/23/23/17/dessert-352475_640.jpg' }, // Replace with your food image URL
+    { image: i1}, // Replace with your food image URL
+    { image: i2 }, // Replace with your food image URL
     { image: 'https://t3.ftcdn.net/jpg/02/38/10/52/360_F_238105207_2jrGVrP5mtzB0LFYJJoZIrI09xy7wHDp.jpg' }, // Replace with your restaurant image URL
     { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHP9LVymyj2FgjUF4BU9RabtaGaUZAjqW2tKWyzfyaKFoChOTlQWKNw3eFlyqA1fYokBw&usqp=CAU' }, // Replace with your restaurant image URL
   ]; 

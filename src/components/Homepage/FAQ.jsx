@@ -5,7 +5,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./FAQ.css";
 
 const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const faqs = [
     {
@@ -33,7 +33,7 @@ const FAQ = () => {
   const handleToggle = (index) => {
     if (activeIndex === index) {
       // If the clicked item is already active, close it
-      setActiveIndex(null);
+      setActiveIndex(index);
     } else {
       // Otherwise, open the clicked item
       setActiveIndex(index);
@@ -42,6 +42,7 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
+      <h3>Frequently asked questions</h3>
       {faqs.map((faq) => (
         <div className="faq-item" key={faq.id}>
           <div
@@ -50,11 +51,7 @@ const FAQ = () => {
               <h5>{faq.header}</h5>
               <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            {activeIndex === faq.id && (
-              <div className="faq-content">
-                <p>{faq.text}</p>
-              </div>
-            )}
+            {activeIndex === faq.id ? `${faq.text}` : ''}
         </div>
       ))}
     </div>
