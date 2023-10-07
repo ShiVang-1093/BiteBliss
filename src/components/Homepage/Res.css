@@ -1,7 +1,7 @@
 /* Default styles */
 .res-sec {
   margin-top: 2%;
-  background-color: orange;
+  background-color:#C5FAD5 ;
   padding: 40px;
   display: flex;
   flex-direction: column; /* Ensure a vertical layout for all screens */
@@ -11,7 +11,7 @@
 
 .res-sec h1 {
   font-size: 40px;
-  color: white;
+  color: black;
 }
 
 .res {
@@ -46,7 +46,7 @@
 
 .res-info p {
   font-size: 23px;
-  color: white;
+  color: black;
 }
 
 /* Media query for responsiveness */

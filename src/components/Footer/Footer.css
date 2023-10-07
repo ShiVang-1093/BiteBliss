@@ -3,14 +3,14 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-areas: "footer";
-    background-color: orange; /* Change the background color to orange */
+    background-color: #F77F00; /* Change the background color to orange */
     padding: 2rem;
   }
   
   /* Style for the footer container */
   .footer {
     z-index: 1;
-    --footer-background: orange; /* Use orange color for the background */
+    --footer-background: #F77F00; /* Use orange color for the background */
     min-height: 12rem;
     background-color: var(--footer-background);
     display: grid;
@@ -56,7 +56,7 @@
   
   /* Style for the links and copyright text */
   div > div > div > a {
-    color: #F5F7FA;
+    color: white;
     text-decoration: none;
     display: block;
     margin-bottom: 0.5rem;
@@ -79,7 +79,7 @@
   .social-icon img {
     width: 24px;
     height: 24px;
-    color: orange; /* Set the icon color to orange */
+    color: #F77F00; /* Set the icon color to orange */
   }
   
   /* Keyframes for bubble animations */
