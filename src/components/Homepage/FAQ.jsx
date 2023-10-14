@@ -27,7 +27,7 @@ const FAQ = () => {
       id: 4,
       header: "Where can I get some?",
       text: "There are many variations of passages...",
-    },
+    }
   ];
 
   const handleToggle = (index) => {
@@ -51,7 +51,9 @@ const FAQ = () => {
               <h5>{faq.header}</h5>
               <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            {activeIndex === faq.id ? `${faq.text}` : ''}
+            <div className="faq-text">
+               {activeIndex === faq.id ? `${faq.text}` : ''}
+            </div>
         </div>
       ))}
     </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 import ContactForm from './contactForm';
 import Testimonial from './Testimonial';
-import Reviews from './Reviews';
+import ReviewAndRating from './ReviewAndRating';
 
 const About = () => {
   return (
     <>
     <Testimonial/>
-    <Reviews/>
+    <ReviewAndRating/>
     <ContactForm />
     
     </>

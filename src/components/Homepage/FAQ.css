@@ -43,15 +43,19 @@
   }
   
   .faq-header.active {
-    background-color: #5a8dee;
-    color: #fff;
+    background-color: #C5FAD5;
+    color: #000;
   }
   
   .faq-header.active i {
     transform: rotate(180deg);
-    color: #fff;
+    color: #000;
   }
-  
+  .faq-text{
+    background-color: #C5FAD5;
+    color: black;
+    padding-left: 15px ;
+  }
   .faq-content {
     padding: 0 20px;
     max-height: 0;
