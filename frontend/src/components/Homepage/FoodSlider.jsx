@@ -75,8 +75,8 @@ const FoodSlider = () => {
 
   return (
     <div className="fs-container">
+        <h1>Delicious Food Items</h1>
       <div id="infiniteScroll--left" ref={scrollContainerRef} className="scroll-container">
-        {/* Map through your food items here */}
         {foodItems.map((foodItem, index) => (
           <article key={index}>
             <div className="wrapper">

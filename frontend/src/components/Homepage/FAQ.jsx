@@ -42,7 +42,7 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <h3>Frequently asked questions</h3>
+      <h1>Frequently asked questions</h1>
       {faqs.map((faq) => (
         <div className="faq-item" key={faq.id}>
           <div
