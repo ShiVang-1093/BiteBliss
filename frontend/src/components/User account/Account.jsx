@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Profile from './Profile';
+import Coupens from './Coupens';
+import Orders from './Orders';
+// import Logout from './Logout';
 
 const Account = () => {
-  return (
-    <div>Account</div>
-  )
-}
+  const [showPopup, setShowPopup] = useState(false);
 
-export default Account
+  const handlePopupClick = () => {
+    setShowPopup(!showPopup);
+  };
+
+
+  return (
+    <div>
+      <button onClick={handlePopupClick}>Account</button>
+      {showPopup && (
+        <div>
+          <button>{<Profile/>}</button>
+          <button>{<Coupens/>}</button>
+          <button>{<Orders/>}</button>
+          {/* <button ><Logout/></button> */}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Account;
