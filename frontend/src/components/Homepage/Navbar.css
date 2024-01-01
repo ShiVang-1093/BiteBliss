@@ -5,14 +5,9 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #BCE7FF;
-  font-family: Arial, sans-serif;
-}
-
 /* Navbar styles */
 .navbar {
-  background-color: #F77F00;
+  background-color: #301c10;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -119,7 +114,7 @@ body {
   }
 
   .nav-menu.active {
-    background: #F77F00;
+    background: #301c10;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;

@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Bitbliss backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShiVang-1093/BiteBliss.git"
+  },
+  "author": "Shivang Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShiVang-1093/BiteBliss/issues"
+  },
+  "homepage": "https://github.com/ShiVang-1093/BiteBliss#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1"
+  }
+}

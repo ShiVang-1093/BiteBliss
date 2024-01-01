@@ -1,13 +1,13 @@
 import React from 'react'
-import ImageSlider from './ImageSlider'
 import Res  from './Res'
 import FoodSlider from './FoodSlider'
 import FAQ from './FAQ'
+import Landing from './Landing'
 
 const Homepage = () => {
   return (
     <div>
-      <ImageSlider />
+      <Landing />
       <Res />
       <FoodSlider />
       <FAQ />

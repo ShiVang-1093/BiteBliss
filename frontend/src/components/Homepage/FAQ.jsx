@@ -33,7 +33,7 @@ const FAQ = () => {
   const handleToggle = (index) => {
     if (activeIndex === index) {
       // If the clicked item is already active, close it
-      setActiveIndex(index);
+      setActiveIndex(0);
     } else {
       // Otherwise, open the clicked item
       setActiveIndex(index);

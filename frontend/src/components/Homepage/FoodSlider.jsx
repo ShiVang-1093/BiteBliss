@@ -84,10 +84,10 @@ const FoodSlider = () => {
                 {/* Use an image for your food item */}
                 <img src={foodItem.image} alt={foodItem.description} />
               </div>
-              <div className="content">
+              {/* <div className="content">
                 <div>{foodItem.price}</div>
                 <div>{foodItem.description}</div>
-              </div>
+              </div> */}
             </div>
           </article>
         ))}

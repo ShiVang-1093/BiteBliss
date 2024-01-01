@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Restaurants.css'
 
 const Restaurants = () => {
@@ -23,12 +23,36 @@ const Restaurants = () => {
       }
     ];
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterTerm, setFilterTerm] = useState('');
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  }
+
+  const handleFilter = (event) => {
+    setFilterTerm(event.target.value);
+  }
+
+  const filteredData = resdata.filter((restaurant) => {
+    return restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) && (filterTerm === '' || restaurant.specialty === filterTerm);
+  });
+
   return (
     <div className='restaurants'>
       <h1>Browse through Restaurants</h1>
-        {resdata.map((restaurant, index) => (
-      <div className='res-list'>
-          <div className='rest-img' key={index}>
+      <div className='search-filter'>
+        <input type='text' placeholder='Search by name' value={searchTerm} onChange={handleSearch} />
+        <select value={filterTerm} onChange={handleFilter}>
+          <option value=''>Filter by specialty</option>
+          <option value='Modern European Cuisine'>Modern European Cuisine</option>
+          <option value='Indian Cuisine'>Indian Cuisine</option>
+          <option value='Japanese Cuisine'>Japanese Cuisine</option>
+        </select>
+      </div>
+      {filteredData.map((restaurant, index) => (
+        <div className='res-list' key={index}>
+          <div className='rest-img'>
             <img src={restaurant.image} alt={restaurant.name} />
           </div>
           <div className='rest-content'>
@@ -40,10 +64,11 @@ const Restaurants = () => {
             <p><strong>Specialty:</strong> {restaurant.specialty}</p>
           </div>
           <br/>
-      </div>
-        ))}
+        </div>
+      ))}
     </div>
   )
 }
 
 export default Restaurants
+
