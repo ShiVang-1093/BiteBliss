@@ -1,7 +1,8 @@
 import React from 'react';
-import {useTypewriter, Cursor} from 'react-simple-typewriter'
-import i1 from '../images/3d_pizza.png';
+import {useTypewriter} from 'react-simple-typewriter'
+// import i1 from '../images/3d_pizza.png';
 import i3 from '../images/landing.svg';
+import cook from '../images/cook.gif';
 
 const Landing = () => {
 
@@ -19,7 +20,7 @@ const Landing = () => {
          <br></br>
         <span className='absolute text-6xl text-coffee font-bold text-center z-10 top-[37%] left-20 xl:left-16 xl:top-[35%] lg:top-[65%] lg:left-[420px] md:left-[350px]  md:text-5xl md:font-bold sm:top-[45%] sm:left-[210px] sm:text-3xl'>{type}!!!</span> 
 
-       <p className='absolute text-3xl text-coffee font-bold z-10 top-[55%] left-20 2xl:top-[65%] xl:top-3/4 xl:left-16 md:top-3/4 sm:top-[57%] sm:left-8 sm:text-2xl'>Eat your favourite food from your favourite restaurant</p>
+       <p className='absolute text-3xl text-coffee font-bold z-10 top-[55%] left-20 2xl:top-[65%] xl:top-3/4 xl:left-16 md:top-3/4 sm:top-[57%] sm:left-8 sm:text-2xl'>Eat your favourite food from your favourite restaurant,</p>
          <br></br>
          <p className='absolute text-3xl text-coffee font-bold z-10 top-[62%] left-20 2xl:top-[74%] xl:top-[81%] xl:left-16 md:top-[85%] sm:top-[68%] sm:left-8 sm:text-2xl '>Explore different Coupen offers</p>
 
@@ -28,7 +29,7 @@ const Landing = () => {
 
         
       <img src={i3} alt='curve' className='absolute right-0 w-9/12 3xl:h-[83vh] h-[90vh] z-0'></img>
-      <img src={i1} alt='food animation' className='absolute top-20 z-10 3xl:h-[57vh] 3xl:w-[57vh] 3xl:right-16 xl:h-[48vh] xl:w-[48vh] md:justify-center md:left-1/2 md:transform md:-translate-x-1/2 sm:top-10 sm:h-[30vh] sm:w-[30vh]'></img>
+      <img src={cook} alt='food animation' className='absolute top-20 z-10 3xl:h-[57vh] 3xl:w-[57vh] 3xl:right-16 xl:h-[48vh] xl:w-[48vh] md:justify-center md:top-10 md:left-1/2 md:transform md:-translate-x-1/2 sm:top-10 sm:h-[30vh] sm:w-[30vh]'></img>
     </div>
   );
 };

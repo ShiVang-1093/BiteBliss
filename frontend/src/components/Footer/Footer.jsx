@@ -1,52 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-import './Footer.css'; // Import your stylesheet
+import { Link } from 'react-router-dom';
+import nug from '../images/nug.gif';
+import pizza from '../images/pizza.gif';
+import sp from '../images/sp.gif';
 
 const Footer = () => {
   return (
-    <div className="main">
-      <div className="footer">
-        <div className="bubbles">
-          {Array.from({ length: 128 }).map((_, i) => (
-            <div
-              className="bubble"
-              style={{
-                '--size': `${2 + Math.random() * 4}rem`,
-                '--distance': `${6 + Math.random() * 4}rem`,
-                '--position': `${-5 + Math.random() * 110}%`,
-                '--time': `${2 + Math.random() * 2}s`,
-                '--delay': `-${2 + Math.random() * 2}s`,
-              }}
-              key={i}
-            ></div>
-          ))}
+    <footer className="bg-coffee py-8">
+      <div className="relative container mx-auto">
+        <div className="flex flex-row md:flex-col justify-between items-center">
+          <div className="flex flex-col md:flex-row ml-10 space-y-4 md:space-y-0 md:space-x-8">
+            <Link to="/" className="text-white hover:text-yellow">Home</Link>
+            <Link to="/restaurants" className="text-white hover:text-yellow">Restaurants</Link>
+            <Link to="/about" className="text-white hover:text-yellow">About</Link>
+            <Link to="/contact" className="text-white hover:text-yellow">Contact Us</Link>
+          </div>
+          <div className="absolute right-10 space-x-4 mt-4  md:mt-0">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
+              <img src={nug} alt="Instagram" className="h-6 w-6" />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">
+              <img src={pizza} alt="LinkedIn" className="h-6 w-6" />
+            </a>
+            <a href="mailto:contact@bitebliss.com" className="text-white hover:text-gray-300">
+              <img src={sp} alt="Email" className="h-6 w-6" />
+            </a>
+          </div>
         </div>
-        <div className="content">
-          <div>
-            <div>
-              <Link to="/">Home</Link>
-              <Link to="/Restaurants">Restaurant</Link>
-              <Link to="/About">About</Link>
-              <Link to="/About">Contact Us</Link>
-            </div>
-          </div>
-          <div>
-            <p>©2023 BiteBliss | Shivang Patel</p>
-            <div className="social-icons">
-              <a href="#">
-                <img src="instagram-icon.png" alt="Instagram" className="image pizza-image" />
-              </a>
-              <a href="#">
-                <img src="linkedin-icon.png" alt="LinkedIn" className="image utensil-spoon-image" />
-              </a>
-              <a href="mailto:your.email@example.com">
-                <img src="email-icon.png" alt="Email" />
-              </a>
-            </div>
-          </div>
+        <div className="text-center mt-4 text-white">
+          ©2023 BiteBliss | Shivang Patel
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
