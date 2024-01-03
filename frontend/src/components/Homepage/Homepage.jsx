@@ -1,8 +1,8 @@
 import React from 'react'
 import Res  from './Res'
 import FoodSlider from './FoodSlider'
-import FAQ from './FAQ'
 import Landing from './Landing'
+import Testimonials from './Testimonial'
 
 const Homepage = () => {
   return (
@@ -10,7 +10,7 @@ const Homepage = () => {
       <Landing />
       <Res />
       <FoodSlider />
-      <FAQ />
+      <Testimonials/>
     </div>
   )
 }

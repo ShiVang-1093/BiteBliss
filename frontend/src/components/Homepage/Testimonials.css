@@ -54,7 +54,7 @@
     align-items: center;
     padding-top: calc(2rem + 1vmin);
     width: 100%;
-    background-color: #F77F00;
+    background-color: #ffff46;
   }
   
   .img-div {
@@ -82,7 +82,7 @@
     font-size: calc(2rem + 2vmin);
     font-family: sans-serif;
     line-height: 150%;
-    color: #fff;
+    color: #000;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -113,7 +113,7 @@
     max-width: 40rem;
     text-align: justify;
     margin-bottom: calc(1.4rem + 1vmin);
-    color: white;
+    color: black;
     line-height: 2rem;
   }
   

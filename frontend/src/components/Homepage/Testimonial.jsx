@@ -46,13 +46,13 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="testimonial-slider">
+    <div className=" testimonial-slider mt-[3%] w-full flex flex-col justify-center pb-20">
       <div className="content-wrapper">
-        <h1>Testimonies</h1>
-        <div className="blue-line"></div>
-        <div className="wrapper-for-arrows">
+        <h1 className='text-5xl font-bold text-center mb-7'>Testimonies</h1>
+        {/* <div className="blue-line bg-yellow"></div> */}
+        <div className="wrapper-for-arrows relative w-[70%] rounded-lg grid place-items-center">
           <div style={{ opacity: 0 }} className="chicken"></div>
-          <div className="review-wrap">
+          <div className=" review-wrap bg-yellow flex flex-cols justify-center items-center pt-8">
             {/* <div
               id="imgDiv"
               className="img-div"
@@ -60,22 +60,22 @@ const Testimonials = () => {
             >
               <img  src={people[currentPerson].photo}></img>
             </div> */}
-            <div id="personName" className="person-name">
+            <div id="personName" className="person-name text-2xl font-bold mb-5">
               {people[currentPerson].name}
             </div>
             {/* <div id="profession" className="profession">
               {people[currentPerson].profession}
             </div> */}
-            <div id="description" className="description">
+            <div id="description" className="description text-justify w-[70%] text-coffee">
               {people[currentPerson].description}
             </div>
           </div>
           
-          <div className="left-arrow-wrap arrow-wrap">
-            <div className="arrow" id="leftArrow" onClick={slideLeft}></div>
+          <div className="left-arrow-wrap arrow-wrap absolute top-1/2">
+            <div className="arrow cursor-pointer" id="leftArrow" onClick={slideLeft}></div>
           </div>
-          <div className="right-arrow-wrap arrow-wrap">
-            <div className="arrow" id="rightArrow" onClick={slideRight}></div>
+          <div className="right-arrow-wrap arrow-wrap absolute top-1/2">
+            <div className="arrow cursor-pointer" id="rightArrow" onClick={slideRight}></div>
           </div>
         </div>
       </div>
