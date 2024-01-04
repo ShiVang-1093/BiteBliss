@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './FoodSlider.css'; // Import your CSS file
 
 const FoodSlider = () => {
   const [isScrollingPaused, setIsScrollingPaused] = useState(false);
@@ -74,15 +73,33 @@ const FoodSlider = () => {
   }, [isScrollingPaused]);
 
   return (
-    <div className="fs-container">
-        <h1>Delicious Food Items</h1>
-      <div id="infiniteScroll--left" ref={scrollContainerRef} className="scroll-container">
+    <div className="fs-container relative overflow-hidden mt-[5%] w-full ">
+<style>
+        {`
+          @keyframes scroll {
+            0% {
+              transform: translateX(100%);
+            }
+            50% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        `}
+      </style>
+        <h1 className='text-5xl font-bold text-center'> Delicious Food Items</h1>
+      <div style={{animation: 'scroll 30s linear infinite',
+    animationIterationCount: 'infinite'}} ref={scrollContainerRef} className="scroll-container flex flex-nowrap ">
+
         {foodItems.map((foodItem, index) => (
-          <article key={index}>
+          <article key={index} className='w-[300px] mr-5'>
             <div className="wrapper">
-              <div className="img">
+              <div className="img mt-12 mb-12">
                 {/* Use an image for your food item */}
-                <img src={foodItem.image} alt={foodItem.description} />
+                <img className='h-full w-full rounded-xl' src={foodItem.image} alt={foodItem.description} />
+                <div className='text-center p-3'>{foodItem.description}</div>
               </div>
               {/* <div className="content">
                 <div>{foodItem.price}</div>

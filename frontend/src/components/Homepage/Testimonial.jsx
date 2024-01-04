@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Testimonials.css';
 
 const Testimonials = () => {
   const [currentPerson, setCurrentPerson] = useState(0);
@@ -47,12 +46,12 @@ const Testimonials = () => {
 
   return (
     <div className=" testimonial-slider mt-[3%] w-full flex flex-col justify-center pb-20">
-      <div className="content-wrapper">
+      <div className="content-wrapper flex flex-col justify-center items-center">
         <h1 className='text-5xl font-bold text-center mb-7'>Testimonies</h1>
         {/* <div className="blue-line bg-yellow"></div> */}
-        <div className="wrapper-for-arrows relative w-[70%] rounded-lg grid place-items-center">
-          <div style={{ opacity: 0 }} className="chicken"></div>
-          <div className=" review-wrap bg-yellow flex flex-cols justify-center items-center pt-8">
+        <div className="wrapper-for-arrows relative w-[70%] rounded-lg grid place-items-center overflow-hidden">
+          <div style={{ opacity: 0 }} className="chicken absolute h-[200px] w-[250px] top-[12%] " ></div>
+          <div className=" review-wrap bg-yellow w-full flex flex-col justify-center items-center pt-8">
             {/* <div
               id="imgDiv"
               className="img-div"
@@ -66,17 +65,17 @@ const Testimonials = () => {
             {/* <div id="profession" className="profession">
               {people[currentPerson].profession}
             </div> */}
-            <div id="description" className="description text-justify w-[70%] text-coffee">
+            <div id="description" className="description text-justify w-[70%] text-coffee text-[15px] leading-8 mb-10">
               {people[currentPerson].description}
             </div>
           </div>
           
-          <div className="left-arrow-wrap arrow-wrap absolute top-1/2">
-            <div className="arrow cursor-pointer" id="leftArrow" onClick={slideLeft}></div>
-          </div>
-          <div className="right-arrow-wrap arrow-wrap absolute top-1/2">
-            <div className="arrow cursor-pointer" id="rightArrow" onClick={slideRight}></div>
-          </div>
+          <div style={{ transform: 'rotate(135deg)', WebkitTransform: 'rotate(135deg)' }} className="left-arrow-wrap arrow-wrap absolute top-1/2 left-[5%]">
+        <div className="arrow h-7 w-7 border-solid border-coffee border-t-0	border-l-0 border-r-8	border-b-8 transition-transform duration-300 cursor-pointer hover:transition-transform hover:duration-300 hover:transform scale-110" id="leftArrow" onClick={slideLeft}></div>
+      </div>
+      <div style={{ transform: 'rotate(-45deg)', WebkitTransform: 'rotate(-45deg)' }} className="right-arrow-wrap arrow-wrap absolute top-1/2 right-[5%]">
+        <div className="arrow h-7 w-7 border-solid border-coffee border-t-0	border-l-0 border-r-8	border-b-8 transition-transform duration-300 cursor-pointer hover:transition-transform hover:duration-300 hover:transform scale-110" id="rightArrow" onClick={slideRight}></div>
+      </div>
         </div>
       </div>
     </div>
