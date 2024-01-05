@@ -4,9 +4,9 @@ import insta from '../Footer/instagram.png';
 import mail from '../Footer/gmail.png';
 import link from '../Footer/linkedin.png';
 
-import pizza from '../images/pizza.gif';
-import nug from '../images/nug.gif';
-import sp from '../images/sp.gif';
+// import pizza from '../images/pizza.gif';
+// import nug from '../images/nug.gif';
+// import sp from '../images/sp.gif';
 
 const Footer = () => {
   return (

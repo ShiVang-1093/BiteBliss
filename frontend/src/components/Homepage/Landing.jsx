@@ -25,9 +25,7 @@ const Landing = () => {
          <p className='absolute text-3xl text-coffee font-bold z-10 top-[62%] left-20 2xl:top-[74%] xl:top-[81%] xl:left-16 md:top-[85%] sm:top-[68%] sm:left-8 sm:text-2xl '>Explore different Coupen offers</p>
 
         <button className='absolute px-5 py-4 bg-yellow text-coffee rounded-md text-2xl top-3/4 left-20 mt-4 2xl:top-[85%] xl:left-16 xl:top-[94%] sm:top-[80%] sm:left-[32%] sm:right-[32%]'>Go to Coupens</button>
-      
-
-        
+    
       <img src={i3} alt='curve' className='absolute right-0 w-9/12 3xl:h-[83vh] h-[90vh] z-0'></img>
       <img src={cook} alt='food animation' className='absolute top-20 z-10 3xl:h-[57vh] 3xl:w-[57vh] 3xl:right-16 xl:h-[48vh] xl:w-[48vh] md:justify-center md:top-10 md:left-1/2 md:transform md:-translate-x-1/2 sm:top-10 sm:h-[30vh] sm:w-[30vh]'></img>
     </div>
