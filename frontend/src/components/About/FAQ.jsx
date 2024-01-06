@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import "./FAQ.css";
-
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -41,19 +39,18 @@ const FAQ = () => {
   };
 
   return (
-    <div className="faq-container">
-      <h1>Frequently asked questions</h1>
+    <div className="faq-container mt-[4%] max-w-3xl mr-auto ml-auto p-4 sm:p-7">
+      <h1 className="text-4xl font-bold text-center text-coffee mb-[6%]">Frequently asked questions</h1>
       {faqs.map((faq) => (
-        <div className="faq-item" key={faq.id}>
-          <div
-            className={`faq-header ${activeIndex === faq.id ? "active" : ""}`}
+        <div className="faq-item overflow-hidden mb-5 rounded-xl shadow-2xl" key={faq.id}>
+          <div className="bg-coffee cursor-pointer flex justify-between items-center p-4"
             onClick={() => handleToggle(faq.id)}>
-              <h5>{faq.header}</h5>
-              <FontAwesomeIcon icon={faChevronDown} />
-            </div>
-            <div className="faq-text">
-               {activeIndex === faq.id ? `${faq.text}` : ''}
-            </div>
+              <h5 className="text-skin text-lg">{faq.header}</h5>
+              <FontAwesomeIcon style={{ transform: activeIndex === faq.id ? 'rotate(180deg)' : '' }} className="text-skin" icon={faChevronDown}/>            
+          </div>
+          <div className="faq-text bg-coffee text-skin pl-4 pb-4 text-lg">
+             {activeIndex === faq.id ? `${faq.text}` : ''}
+          </div>
         </div>
       ))}
     </div>

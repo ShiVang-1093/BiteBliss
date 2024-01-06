@@ -50,11 +50,11 @@ const Restaurants = () => {
   });
 
   return (
-    <div className='restaurants bg-yellow m-[5%] w-[90%] flex flex-col flex-wrap justify-around self-center rounded-xl shadow-2xl '>
-      <h1 className='text-center mt-5 mb-5 text-coffee text-4xl font-bold'>Browse through Restaurants</h1>
+    <div className='restaurants  m-[4%] w-[92%] flex flex-col flex-wrap justify-around self-center rounded-xl '>
+      <h1 className='text-center mb-5 text-coffee text-4xl font-bold'>Browse through Restaurants</h1>
       <div className='search-filter flex m-[2%] w-[90%] self-center justify-between'>
-        <input className='w-[60%] p-3 ml-[3%] rounded-lg border-none shadow-2xl' type='text' placeholder='Search by name' value={searchTerm} onChange={handleSearch} />
-        <select className='w-1/4 p-3 mr-[3%] rounded-lg border-none shadow-2xl' value={filterTerm} onChange={handleFilter}>
+        <input className=' w-[60%] p-3 ml-[3%] rounded-lg border-none shadow-2xl' type='text' placeholder='Search by name' value={searchTerm} onChange={handleSearch} />
+        <select className=' w-1/4 p-3 mr-[3%] rounded-lg border-none shadow-2xl' value={filterTerm} onChange={handleFilter}>
           <option value=''>Filter by specialty</option>
           <option value='Modern European Cuisine'>Modern European Cuisine</option>
           <option value='Indian Cuisine'>Indian Cuisine</option>
@@ -66,7 +66,7 @@ const Restaurants = () => {
           <div className='rest-img w-full flex h-auto p-5 rounded-2xl object-cover hover:opacity-80'>
             <img className='self-center justify-center' src={restaurant.image} alt={restaurant.name} />
           </div>
-          <div className='rest-content text-justify rounded-[10%] pr-[3%] w-full text-skin'>
+          <div className='rest-content text-justify rounded-[10%] pr-[3%] w-full text-skin sm:p-7'>
             <br/>
             <h2 className='text-skin text-xl font-semibold'>{restaurant.name}</h2>
             <br/>
