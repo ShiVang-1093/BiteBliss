@@ -35,16 +35,16 @@ function ContactForm() {
   };
 
   return (
-    <div className="faq-flex1 m-[3%] flex flex-col items-center justify-center h-[80vh] bg-yellow shadow-md rounded-2xl">
-      <div className="contactus-title font-bold text-3xl text-coffee mb-[2%] mt-[2%]">
+    <div className="faq-flex1 flex flex-col items-center justify-center  m-[6%] h-auto w-[88%] bg-yellow shadow-md rounded-2xl">
+      <div className="contactus-title font-bold text-3xl text-coffee mt-6">
         REACH OUT TO US...!
       </div>
-      <div className="contact-form p-4 rounded-lg">
-        <form className="doubt-form flex flex-row flex-wrap justify-between self-center sm:grid sm:grid-cols-[1fr]">
-          <label className="faq-lable flex flex-col basis-[45%] m-2">
-            <div className="faq-field font-bold text-xl">First name:</div>
+      <div className="contact-form pl-4 pr-4 pb-4 rounded-lg">
+        <form className="doubt-form ml-[2%] flex flex-row flex-wrap justify-between self-center sm:grid sm:grid-cols-[1fr]">
+          <label className="faq-lable flex flex-col basis-[45%] mb-2">
+            <div className="faq-field font-bold text-xl leading-[44px]">First name:</div>
             <input
-              className="faq-fields"
+              className="faq-fields p-3 w-full"
               type="firstname"
               name="firstname"
               onChange={handleChange}
@@ -53,10 +53,10 @@ function ContactForm() {
               required
             />
           </label>
-          <label className="faq-lable flex flex-col basis-[45%] m-2">
-            <div className="faq-field font-bold text-xl">Last name:</div>
+          <label className="faq-lable flex flex-col basis-[45%] mb-2">
+            <div className="faq-field font-bold text-xl leading-[44px]">Last name:</div>
             <input
-              className="faq-fields"
+              className="faq-fields p-3 w-full"
               type="lastname"
               name="lastname"
               onChange={handleChange}
@@ -67,10 +67,10 @@ function ContactForm() {
           </label>
           <br />
           <br />
-          <label className="faq-lable flex flex-col basis-[45%] m-2">
-            <div className="faq-field font-bold text-xl">Email:</div>
+          <label className="faq-lable flex flex-col basis-[45%] mb-2">
+            <div className="faq-field font-bold text-xl leading-[44px]">Email:</div>
             <input
-              className="faq-fields"
+              className="faq-fields p-3 w-full"
               type="email"
               name="email"
               onChange={handleChange}
@@ -79,10 +79,10 @@ function ContactForm() {
               value={formData.email}
             />
           </label>
-          <label className="faq-lable flex flex-col basis-[45%] m-2">
-            <div className="faq-field font-bold text-xl">Contact Number:</div>
+          <label className="faq-lable flex flex-col basis-[45%] mb-2">
+            <div className="faq-field font-bold text-xl leading-[44px]">Contact Number:</div>
             <input
-              className="faq-fields"
+              className="faq-fields p-3 w-full"
               type="contactno"
               name="contactno"
               onChange={handleChange}
@@ -92,10 +92,10 @@ function ContactForm() {
             />
           </label>
           <br />
-          <label className="faq-lable flex flex-col basis-[45%] m-2">
-            <div className="faq-field font-bold text-xl">Message:</div>
+          <label className="faq-lable flex flex-col basis-[45%] mb-2">
+            <div className="faq-field font-bold text-xl leading-[44px]">Message:</div>
             <input
-              className="faq-massage"
+              className="faq-massage p-1 rounded-lg outline-none h-16 w-[213%] sm:w-auto"
               type="message"
               name="message"
               onChange={handleChange}
@@ -106,7 +106,7 @@ function ContactForm() {
           <br />
           <br />
         </form>
-          <button className="sub-btn bg-blue-500 text-white border-none rounded-full px-4 py-2 cursor-pointer ml-44 mr-44 self-start mt-10" onClick={handleLogin}>
+          <button className="sub-btn bg-coffee text-yellow border-none rounded-[60px] px-8 py-4 cursor-pointer ml-[44%] mr-[44%]  mt-5 mb-5" onClick={handleLogin}>
             Submit
           </button>
       </div>
