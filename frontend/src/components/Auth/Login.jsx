@@ -12,45 +12,45 @@ function Login() {
   };
 
   return (
-    <div className="mx-auto px-4 flex items-center justify-center h-auto overflow-hidden w-[90%] m-[5%] bg-green rounded-3xl shadow-yellow ">
+    <div className="mx-auto px-4 flex items-center justify-center h-[40%] overflow-hidden w-[90%] m-[5%] bg-yellow rounded-3xl shadow-yellow ">
       {/* Image section */}
-      <div className="w-full lg:w-1/2 ">
-        <img src={pizza} alt='p' className="w-auto h-auto object-cover"></img>
+      <div className="w-[35%] lg:w-1/2 ">
+        <img src={pizza} alt='p' className="w-full h-full object-cover mx-10"></img>
       </div>
 
       {/* Login form section */}
-      <div className="w-full lg:w-1/2 p-8">
+      <div className="w-[65%] lg:w-1/2 p-8">
         <h2 className="text-3xl font-bold mb-8 text-center">Welcome Back!</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email Id</label>
+          <div className="mb-4 flex">
+            <label htmlFor="email" className="text-coffee font-bold mr-4 items-center">Email Id</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-coffee leading-tight focus:outline-none"
             />
           </div>
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password</label>
+          <div className="mb-7 flex">
+            <label htmlFor="password" className="block text-coffee font-bold mr-4">Password</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-coffee leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded font-bold hover:bg-blue-700">
+          <button type="submit" className="bg-coffee text-yellow px-4 py-2 rounded font-bold hover:bg-green">
             Sign In
           </button>
           <div className="flex items-center justify-between mt-4">
-            <Link to="/Signup" className="underline text-blue-500 hover:text-blue-700">Sign Up</Link>
-            <Link to="/forgot-password" className="underline text-blue-500 hover:text-blue-700">Forgot Password?</Link>
+            <Link to="/Signup" className="underline text-coffee hover:text-blue-700">Sign Up</Link>
+            <Link to="/forgot-password" className="underline text-coffee hover:text-blue-700">Forgot Password?</Link>
           </div>
           <div className="mt-6">
-            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2">
+            <button className="bg-coffee hover:bg-gray-400 text-yellow font-bold py-2 px-4 rounded mr-2">
               <i className="fab fa-facebook-f"></i> Sign in with Facebook
             </button>
             {/* ... other social login buttons */}

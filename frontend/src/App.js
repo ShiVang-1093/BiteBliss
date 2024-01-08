@@ -7,6 +7,7 @@ import Account from "./components/User account/Account";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/signup";
+import Coupon from "./components/Coupons/Coupon";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route path="/Restaurants" element={<Restaurants />} />
+        <Route path="/Coupons" element={<Coupon />} />
         <Route path="/Restaurants/:id" element={<Restaurants />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />

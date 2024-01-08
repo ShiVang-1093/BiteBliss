@@ -90,6 +90,17 @@ const NavBar = () => {
             <li className="nav-item">
               <NavLink
                 exact
+                to="/Coupons"
+                activeClassName="nav-active"
+                className="nav-links"
+                onClick={() => setClick(false)}
+              >
+                Coupons
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
                 to="/About"
                 activeClassName="nav-active"
                 className="nav-links"
