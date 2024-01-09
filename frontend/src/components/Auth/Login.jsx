@@ -1,67 +1,92 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import pizza from '../images/pizza.gif';
+import chef from '../images/chef_login.png';
 
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle login logic here
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
-    <div className="mx-auto px-4 flex items-center justify-center h-[40%] overflow-hidden w-[90%] m-[5%] bg-yellow rounded-3xl shadow-yellow ">
-      {/* Image section */}
-      <div className="w-[35%] lg:w-1/2 ">
-        <img src={pizza} alt='p' className="w-full h-full object-cover mx-10"></img>
-      </div>
+    <section className="min-h-screen flex items-center justify-center">
+      <div className="bg-yellow w-[60%] flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+        <div className="md:w-1/2 px-8 md:px-16">
+          <h2 className="font-bold text-2xl text-coffee">Login</h2>
+          <p className="text-xs mt-4 text-coffee">If you are already a member, easily log in</p>
 
-      {/* Login form section */}
-      <div className="w-[65%] lg:w-1/2 p-8">
-        <h2 className="text-3xl font-bold mb-8 text-center">Welcome Back!</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="mb-4 flex">
-            <label htmlFor="email" className="text-coffee font-bold mr-4 items-center">Email Id</label>
+          <form action="" className="flex flex-col gap-4">
             <input
+              className="p-2 mt-5 rounded-xl border"
               type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-coffee leading-tight focus:outline-none"
+              name="email"
+              placeholder="Email"
             />
-          </div>
-          <div className="mb-7 flex">
-            <label htmlFor="password" className="block text-coffee font-bold mr-4">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-coffee leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <button type="submit" className="bg-coffee text-yellow px-4 py-2 rounded font-bold hover:bg-green">
-            Sign In
-          </button>
-          <div className="flex items-center justify-between mt-4">
-            <Link to="/Signup" className="underline text-coffee hover:text-blue-700">Sign Up</Link>
-            <Link to="/forgot-password" className="underline text-coffee hover:text-blue-700">Forgot Password?</Link>
-          </div>
-          <div className="mt-6">
-            <button className="bg-coffee hover:bg-gray-400 text-yellow font-bold py-2 px-4 rounded mr-2">
-              <i className="fab fa-facebook-f"></i> Sign in with Facebook
+            <div className="relative">
+              <input
+                className="p-2 rounded-xl border w-full"
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="gray"
+                className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
+                viewBox="0 0 16 16"
+                onClick={togglePasswordVisibility}
+              >
+                {/* ...path data */}
+              </svg>
+            </div>
+            <button className="bg-coffee rounded-xl text-yellow py-2 px-5 mt-2 hover:scale-105 duration-300">
+              Login
             </button>
-            {/* ... other social login buttons */}
+          </form>
+
+          <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
+            <hr className="border-gray-400" />
+            <p className="text-center text-sm">OR</p>
+            <hr className="border-gray-400" />
           </div>
-        </form>
+
+          <button className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-yellow">
+            <svg className="mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px">
+              {/* ...path data */}
+            </svg>
+            Login with Google
+          </button>
+
+          <div className="mt-5 text-xs border-b border-coffee py-4 text-coffee">
+            <Link to="">Forgot your password?</Link>
+          </div>
+
+          <div className="mt-3 text-xs flex justify-between items-center text-coffee">
+            <p>Don't have an account?</p>
+            <Link to="/Signup">
+              <button className="py-2 px-5 bg-coffee text-yellow border rounded-xl hover:scale-110 duration-300">Register</button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="md:hidden ml-20 w-1/2">
+          <img
+            className="rounded-2xl"
+            src={chef}
+            alt='.'
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Login;
+
+
 
 
 
