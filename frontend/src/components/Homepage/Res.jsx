@@ -22,7 +22,7 @@ const Res = () => {
                 <p className='text-3xl text-center font-bold text-coffee md:text-2xl'>"Unleash Flavorful Savings: BiteBliss, Where Every Bite Comes with a Delightful Discount!"</p>
             </div>
         </div>
-        <Link to='/coupon-offers' className='absolute bg-coffee text-yellow p-4 rounded-lg bottom-5 right-8'>Coupon Offers</Link>
+        <Link to='/Coupons' className='absolute bg-coffee text-yellow p-4 rounded-lg bottom-5 right-8'>Coupon Offers</Link>
     </div>
   )
 }

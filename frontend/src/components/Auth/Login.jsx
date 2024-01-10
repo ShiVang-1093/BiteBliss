@@ -10,9 +10,9 @@ const Login = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center">
-      <div className="bg-yellow w-[60%] flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
-        <div className="md:w-1/2 px-8 md:px-16">
+    <section className="h-screen w-full flex items-center justify-center xs:px-10">
+      <div className="bg-yellow flex w-[90%] md:flex-col-reverse h-auto rounded-2xl shadow-lg max-w-3xl p-5 items-center xs:h-[80%]">
+        <div className="px-8 md:px-16 md:text-center">
           <h2 className="font-bold text-2xl text-coffee">Login</h2>
           <p className="text-xs mt-4 text-coffee">If you are already a member, easily log in</p>
 
@@ -47,10 +47,10 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
-            <hr className="border-gray-400" />
+          <div className="mt-6 grid grid-cols-3 items-center text-coffee">
+            <hr className="border-coffee" />
             <p className="text-center text-sm">OR</p>
-            <hr className="border-gray-400" />
+            <hr className="border-coffee" />
           </div>
 
           <button className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-yellow">
@@ -72,9 +72,9 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="md:hidden ml-20 w-1/2">
+        <div className="xs:hidden md:flex md:justify-center md:mt-8 md:w-3/4 md:mx-auto ml-20 w-1/2">
           <img
-            className="rounded-2xl"
+            className="rounded-2xl md:h-[300px]"
             src={chef}
             alt='.'
           />

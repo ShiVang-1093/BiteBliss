@@ -1,10 +1,13 @@
+
+
+
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import chef from '../images/chef_login.png';
 
 const Signup = () => {
-    
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
     
     // const [formData, setFormData] = useState({
     //     firstName: '',
@@ -27,10 +30,10 @@ const Signup = () => {
     };
 
   return (
-    <section className="min-h-screen flex items-center justify-center">
-      <div className="bg-yellow w-[60%] flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
-        <div className="md:w-1/2 px-8 md:px-16">
-          <h2 className="font-bold text-2xl text-coffee">Sign Up</h2>
+    <section className="h-screen w-full flex items-center justify-center xs:px-10">
+      <div className="bg-yellow flex w-[90%] md:flex-col-reverse h-auto rounded-2xl shadow-lg max-w-3xl p-5 items-center xs:h-[90%]">
+        <div className="px-8 md:px-16 md:text-center">
+        <h2 className="font-bold text-2xl text-coffee">Sign Up</h2>
           <p className="text-xs mt-4 text-coffee">Welcome to our family, Sign up easily</p>
 
           <form action="" className="flex flex-col gap-4">
@@ -96,13 +99,13 @@ const Signup = () => {
             </button>
           </form>
 
-          <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
-            <hr className="border-gray-400" />
+          <div className="mt-4 grid grid-cols-3 items-center text-coffee">
+            <hr className="border-coffee" />
             <p className="text-center text-sm">OR</p>
-            <hr className="border-gray-400" />
+            <hr className="border-coffee" />
           </div>
 
-          <button className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-yellow">
+          <button className="bg-coffee border py-2 w-full rounded-xl mt-3 flex justify-center items-center text-sm hover:scale-105 duration-300 text-yellow">
             <svg className="mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px">
               {/* ...path data */}
             </svg>
@@ -121,9 +124,9 @@ const Signup = () => {
           </div>
         </div>
 
-        <div className="md:hidden ml-20 w-1/2">
+        <div className="xs:hidden md:flex md:justify-center md:mt-8 md:w-3/4 md:mx-auto ml-20 w-1/2">
           <img
-            className="rounded-2xl"
+            className="rounded-2xl md:h-[300px]"
             src={chef}
             alt='.'
           />
@@ -134,8 +137,6 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
 
 
 // import React, { useState } from 'react';

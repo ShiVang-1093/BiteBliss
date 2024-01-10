@@ -32,6 +32,8 @@ module.exports = {
   
         'sm': {'max': '725px'},
         // => @media (max-width: 639px) { ... }
+
+        'xs': {'max': '500px'},
       },
     extend: {},
   },

@@ -39,7 +39,7 @@ function ContactForm() {
       <div className="contactus-title font-bold text-3xl text-coffee mt-6">
         REACH OUT TO US...!
       </div>
-      <div className="contact-form pl-4 pr-4 pb-4 rounded-lg">
+      <div className="contact-form mt-[3%] pl-4 pr-4 pb-4 rounded-lg">
         <form className="doubt-form ml-[2%] flex flex-row flex-wrap justify-between self-center sm:grid sm:grid-cols-[1fr]">
           <label className="faq-lable flex flex-col basis-[45%] mb-2">
             <div className="faq-field font-bold text-xl leading-[44px]">First name:</div>
