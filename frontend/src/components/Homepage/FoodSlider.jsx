@@ -1,68 +1,60 @@
 import React, { useState, useEffect, useRef } from 'react';
+import sl1 from '../images/slide1.jpg';
+import sl2 from '../images/slide2.jpg';
+import sl4 from '../images/slide4.jpg';
+import sl5 from '../images/slide5.jpeg';
+import sl6 from '../images/slide6.jpeg';
+import { Link } from 'react-router-dom';
 
 const FoodSlider = () => {
   const [isScrollingPaused, setIsScrollingPaused] = useState(false);
   const scrollContainerRef = useRef(null);
 
   const foodItems = [
-    {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
-
-      {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
-
-      {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
-
-      {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
-
-      {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
-
-      {image:'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      name:"Burger", 
-      price:"$10", 
-      description: "Burger with fries"},
+    {
+      id: 1,
+      image: sl1,
+      name: 'Paneer Tikka',
+    },
+    {
+      id: 2,
+      image: sl2,
+      name: 'Masala Dosa',
+    },
+    {
+      id: 4,
+      image: sl4,
+      name: 'Aloo Gobi',
+    },
+    {
+      id: 5,
+      image: sl5,
+      name: 'Chana Masala',
+    },
+    {
+      id: 6,
+      image: sl6,
+      name: 'Vegetable Biryani',
+    }
   ];
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    const scrollWidth = scrollContainer.scrollWidth;
     let interval;
 
     function scroll() {
       if (!isScrollingPaused) {
-        const first = scrollContainer.querySelector('article');
+        const itemWidth = scrollContainer.querySelector('article').offsetWidth;
 
-        if (!isElementInViewport(first)) {
-          scrollContainer.appendChild(first);
-          scrollContainer.scrollTo(
-            scrollContainer.scrollLeft - first.offsetWidth,0);
-        }
-        if (scrollContainer.scrollLeft !== scrollWidth) {
+        if (scrollContainer.scrollLeft % itemWidth === 0) {
           scrollContainer.scrollTo(scrollContainer.scrollLeft + 1, 0);
+        }
+
+        if (scrollContainer.scrollLeft >= itemWidth * (foodItems.length + 1)) {
+          scrollContainer.scrollLeft = 0;
         }
       }
     }
-
-    function isElementInViewport(el) {
-      var rect = el.getBoundingClientRect();
-      return rect.right > 0;
-    }
-
-    scrollContainer.addEventListener('mouseenter', () => setIsScrollingPaused(true));
-    scrollContainer.addEventListener('mouseleave', () => setIsScrollingPaused(false));
 
     // Start scrolling on load
     interval = setInterval(scroll, 15);
@@ -70,18 +62,15 @@ const FoodSlider = () => {
     return () => {
       clearInterval(interval); // Cleanup interval on unmount
     };
-  }, [isScrollingPaused]);
+  }, [isScrollingPaused, foodItems]);
 
   return (
-    <div className="fs-container relative overflow-hidden mt-[5%] w-full ">
-<style>
+    <div className="fs-container relative overflow-hidden mt-[5%] w-full">
+      <style>
         {`
           @keyframes scroll {
             0% {
               transform: translateX(100%);
-            }
-            50% {
-              transform: translateX(0);
             }
             100% {
               transform: translateX(-100%);
@@ -89,23 +78,25 @@ const FoodSlider = () => {
           }
         `}
       </style>
-        <h1 className='text-5xl font-bold text-center'> Delicious Food Items</h1>
-      <div style={{animation: 'scroll 30s linear infinite',
-    animationIterationCount: 'infinite'}} ref={scrollContainerRef} className="scroll-container flex flex-nowrap ">
-
+      <h1 className='text-5xl font-bold text-center'>Delicious Food Items</h1>
+      <div
+        onMouseEnter={() => setIsScrollingPaused(true)}
+        onMouseLeave={() => setIsScrollingPaused(false)}
+        style={{
+          animation: 'scroll 30s linear infinite',
+          animationIterationCount: 'infinite',
+        }}
+        ref={scrollContainerRef}
+        className="scroll-container flex flex-nowrap "
+      >
         {foodItems.map((foodItem, index) => (
-          <article key={index} className='w-[300px] mr-5'>
-            <div className="wrapper">
-              <div className="img mt-12 mb-12">
-                {/* Use an image for your food item */}
-                <img className='h-full w-full rounded-xl' src={foodItem.image} alt={foodItem.description} />
-                <div className='text-center p-3'>{foodItem.description}</div>
+          <article key={index} className='mr-8'>
+              <div className="my-12">
+                <Link to='/Restaurants'>
+                <img className='cursor-pointer h-[28vh] w-[400px] rounded-xl xl:h-[18vh] xl:w-full md:w-[240px]' src={foodItem.image} alt={foodItem.name} />
+                </Link>
+                <div className='text-center p-3 font-medium text-2xl'>{foodItem.name}</div>
               </div>
-              {/* <div className="content">
-                <div>{foodItem.price}</div>
-                <div>{foodItem.description}</div>
-              </div> */}
-            </div>
           </article>
         ))}
       </div>

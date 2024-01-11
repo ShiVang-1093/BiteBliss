@@ -47,7 +47,7 @@ const Testimonials = () => {
   return (
     <div className=" testimonial-slider mt-[3%] w-full flex flex-col justify-center pb-20">
       <div className="content-wrapper flex flex-col justify-center items-center">
-        <h1 className='text-5xl font-bold text-center mb-7'>Testimonies</h1>
+        <h1 className='text-5xl font-bold text-center mb-7 sm:text-4xl sm:font-bold'>Testimonies</h1>
         {/* <div className="blue-line bg-yellow"></div> */}
         <div className="wrapper-for-arrows relative w-[70%] rounded-lg grid place-items-center overflow-hidden">
           <div style={{ opacity: 0 }} className="chicken absolute h-[200px] w-[250px] top-[12%] " ></div>
