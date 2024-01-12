@@ -1,10 +1,11 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Menu = () => {
   const { restaurantName } = useParams();
+  const navigate = useNavigate();
 
-  // Replace this with your actual menu data
   const menuData = {
     "The Gourmet Bistro": [
       { item: "Gourmet Pasta", price: "$14.99" },
@@ -54,7 +55,8 @@ const Menu = () => {
   const restaurantMenu = menuData[restaurantName] || [];
 
       return (
-        <div className="menu-container m-[5%] w-[90%] flex flex-col items-center justify-around self-center rounded-xl bg-coffee">
+        <div className="menu-container relative m-[5%] w-[90%] flex flex-col items-center justify-around self-center rounded-xl bg-coffee">
+          <FaArrowLeft className='absolute top-7 left-7 text-skin self-start cursor-pointer' size={24} onClick={()=>navigate(-1)} />
           <h1 className="text-center mt-5 mb-10 text-skin text-4xl font-bold">{restaurantName} Menu</h1>
           <div className="menu-items w-full">
             {restaurantMenu.map((item, index) => (

@@ -106,7 +106,7 @@ function ContactForm() {
           <br />
           <br />
         </form>
-          <button className="sub-btn bg-coffee text-yellow border-none rounded-[60px] px-8 py-4 cursor-pointer ml-[44%] mr-[44%]  mt-5 mb-5" onClick={handleLogin}>
+          <button className="sub-btn bg-coffee text-yellow border-none rounded-[60px] px-8 py-4 cursor-pointer ml-[44%] mr-[44%] mt-5 mb-5 hover:scale-110 transition-transform" onClick={handleLogin}>
             Submit
           </button>
       </div>

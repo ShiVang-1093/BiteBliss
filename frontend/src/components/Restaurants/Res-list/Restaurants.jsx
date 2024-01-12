@@ -13,6 +13,7 @@ const Restaurants = () => {
 
     navigate(`/menu/${restaurant.name}`);
   };
+  
   const resdata = [
       {
         image: r1,
@@ -53,7 +54,7 @@ const Restaurants = () => {
     <div className='restaurants  m-[4%] w-[92%] flex flex-col flex-wrap justify-around self-center rounded-xl '>
       <h1 className='text-center mb-5 text-coffee text-4xl font-bold'>Browse through Restaurants</h1>
       <div className='search-filter flex m-[2%] w-[90%] self-center justify-between'>
-        <input className=' w-[60%] p-3 ml-[3%] rounded-lg border-none shadow-2xl' type='text' placeholder='Search by name' value={searchTerm} onChange={handleSearch} />
+        <input className=' w-[60%] p-3 ml-[3%] rounded-lg border-solid border-coffee shadow-2xl' type='text' placeholder='Search by name' value={searchTerm} onChange={handleSearch} />
         <select className=' w-1/4 p-3 mr-[3%] rounded-lg border-none shadow-2xl' value={filterTerm} onChange={handleFilter}>
           <option value=''>Filter by specialty</option>
           <option value='Modern European Cuisine'>Modern European Cuisine</option>

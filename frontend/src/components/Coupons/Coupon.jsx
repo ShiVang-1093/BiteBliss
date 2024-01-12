@@ -20,7 +20,83 @@ const Coupon = () => {
         name: "Sushi Delight",
         discountOffer: 25,
         specialty: "Japanese Cuisine"
-      }  ];
+      },
+      {
+        name: "Gujarati Delights",
+        discountOffer: 15,
+        specialty: "Traditional Gujarati Cuisine",
+      },
+      {
+        name: "Spice Paradise",
+        discountOffer: 10,
+        specialty: "Spicy Indian Delicacies",
+      },
+      {
+        name: "Heritage Thali House",
+        discountOffer: 20,
+        specialty: "Authentic Gujarati Thalis",
+      },
+      {
+        name: "Mango Masti",
+        discountOffer: 25,
+        specialty: "Mango-infused Delicacies",
+      },
+      {
+        name: "Golden Dhaba",
+        discountOffer: 18,
+        specialty: "Punjabi Flavors",
+      },
+      {
+        name: "Saffron Fusion",
+        discountOffer: 22,
+        specialty: "North Indian Fusion",
+      },
+      {
+        name: "Royal Kebab Corner",
+        discountOffer: 12,
+        specialty: "Mughlai Kebabs",
+      },
+      {
+        name: "Riverside Retreat",
+        discountOffer: 30,
+        specialty: "Scenic Dining by the River",
+      },
+      {
+        name: "Flavors of Gujarat",
+        discountOffer: 15,
+        specialty: "Gujarati Delicacies",
+      },
+      {
+        name: "Coastal Spice Lounge",
+        discountOffer: 20,
+        specialty: "Coastal Seafood",
+      },
+      {
+        name: "Serenity Sizzlers",
+        discountOffer: 25,
+        specialty: "Sizzling Delights",
+      },
+      {
+        name: "Gujarati Grills & Greens",
+        discountOffer: 18,
+        specialty: "Grilled Gujarati Cuisine",
+      },
+      {
+        name: "Sunset Bites",
+        discountOffer: 22,
+        specialty: "Panoramic Sunset Views",
+      },
+      {
+        name: "Gastronomic Gateway",
+        discountOffer: 12,
+        specialty: "International Gastronomy",
+      },
+      {
+        name: "Floral Feast Fine Dining",
+        discountOffer: 30,
+        specialty: "Elegant Fine Dining Experience",
+      },  
+  ];
 
   const handleAddToCart = (restaurant) => {
     setCartItems((prevCartItems) => [...prevCartItems, restaurant.name]);
@@ -28,9 +104,9 @@ const Coupon = () => {
 
   return (
     <div className="container mx-auto px-4">
-      {resdata.map((res) => (
-        <div key={res.name} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-yellow rounded-lg shadow-md p-4 m-5">
+      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-4">
+        {resdata.map((res) => (
+          <div key={res.name} className="bg-yellow rounded-lg shadow-md p-4 m-5">
             <h2 className="text-coffee text-2xl font-bold mb-2">{res.name}</h2>
             <p className="text-coffee text-lg mb-2">{res.discountOffer}% off</p>
             <p className="text-coffee text-sm">{res.specialty}</p>
@@ -45,8 +121,8 @@ const Coupon = () => {
               {cartItems.includes(res.name) ? 'Added' : 'Add to Cart'}
             </button>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

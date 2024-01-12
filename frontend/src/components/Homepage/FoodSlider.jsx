@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import sl1 from '../images/slide1.jpg';
 import sl2 from '../images/slide2.jpg';
 import sl4 from '../images/slide4.jpg';
@@ -10,7 +10,7 @@ const FoodSlider = () => {
   const [isScrollingPaused, setIsScrollingPaused] = useState(false);
   const scrollContainerRef = useRef(null);
 
-  const foodItems = [
+  const foodItems = useMemo(() => [
     {
       id: 1,
       image: sl1,
@@ -36,7 +36,7 @@ const FoodSlider = () => {
       image: sl6,
       name: 'Vegetable Biryani',
     }
-  ];
+  ], []);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;

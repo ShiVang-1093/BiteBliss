@@ -26,23 +26,21 @@ const Footer = () => {
           <img src={sp} alt="" className="absolute -right-12 -bottom-8 h-[120px] w-[120px] z-1" /> */}
 
           <div className="flex flex-col absolute right-12 space-y-5 mt-4 md:mt-0 sm:right-2">
-            <div className='flex'>
-              <img src={insta} className='w-10 h-10' alt=''></img>
-              <Link to="https://www.instagram.com" className="text-white self-center pl-3 hover:text-gray-300">
-              Instagram </Link>
-            </div>
+            <Link to="https://www.instagram.com" className='flex'>
+               <img src={insta} className='w-10 h-10' alt=''></img>
+               <div className="text-white self-center pl-3 hover:text-yellow">Instagram </div>      
+            </Link>
 
-            <div className='flex '>
-              <img src={link} className='w-9 h-9' alt=''></img>
-             <Link to="https://www.linkedin.com" className="text-white self-center pl-3 hover:text-gray-300">
-              LinkedIn</Link>
-            </div>
+            <Link to="https://www.linkedin.com" className="flex">
+              <img src={link} className="w-9 h-9" alt="" />
+              <div className="text-white self-center pl-3 hover:text-yellow">LinkedIn</div>
+            </Link>
 
-            <div className='flex '>
-                <img src={mail} className='w-9 h-9' alt=''></img>
-                <Link to="mailto:contact@bitebliss.com" className="text-white self-center pl-3 hover:text-gray-300">
-                Email</Link>
-            </div>
+            <Link to="mailto:contact@bitebliss.com" className="flex">
+              <img src={mail} className="w-9 h-9" alt="" />
+              <div className="text-white self-center pl-3 hover:text-yellow">Email</div>
+            </Link>
+
        </div>
         </div>
         <div className="text-center mt-10 text-white">

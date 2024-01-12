@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Res = () => {
   return (
-    <div className='res-sec relative flex flex-col items-center	text-center p-[2%] 3xl:mt-[10vh] 2xl:mt-[10vh] xl:mt-[10vh] sm:mt-0 bg-green'>
+    <div className='res-sec relative flex flex-col items-center	text-center p-[2%] 3xl:mt-[10vh] 2xl:mt-[10vh] xl:mt-[10vh] sm:mt-0 bg-yellow'>
         <h1 className='text-5xl mt-4 font-bold sm:text-4xl sm:font-bold'>Experiance the delightness</h1>
         <div className='w-[85%] p-7 mb-5 grid grid-cols-2 gap-8 xl:grid-cols-1'>
             <div className='overflow-hidden	rounded-xl flex xl:justify-center xl:items-center '>
@@ -22,7 +22,7 @@ const Res = () => {
                 <p className='text-3xl text-center font-bold text-coffee md:text-2xl'>"Unleash Flavorful Savings: BiteBliss, Where Every Bite Comes with a Delightful Discount!"</p>
             </div>
         </div>
-        <Link to='/Coupons' className='absolute bg-coffee text-yellow p-4 rounded-lg bottom-5 right-8'>Coupon Offers</Link>
+        <Link to='/Coupons' className='absolute bg-coffee text-yellow p-4 rounded-lg bottom-5 right-8 hover:scale-110 transition-transform'>Coupon Offers</Link>
     </div>
   )
 }

@@ -48,16 +48,16 @@ const ReviewAndRating = () => {
         ))}
       </div>
       <form onSubmit={handleSubmit} className='flex flex-col items-center'>
-  <textarea
-    className="review-input w-[400px] h-[10rem] mt-5 mb-5 p-2 rounded-xl border-solid border-coffee"
-    placeholder='Enter your valuable Review'
-    value={review}
-    onChange={handleReviewChange}
-  />
-  <button className="mt-4 mx-auto rounded-2xl py-4 px-7 bg-coffee text-yellow text-xl hover:transition-transform scale-100">
-    Submit
-  </button>
-</form>
+        <textarea
+          className="review-input w-[400px] h-[10rem] mt-5 mb-5 p-2 rounded-xl border-solid border-coffee"
+          placeholder='Enter your valuable Review'
+          value={review}
+          onChange={handleReviewChange}/>
+          
+        <button className="mt-4 mx-auto rounded-2xl py-4 px-7 bg-coffee text-yellow text-xl hover:scale-110 transition-transform">
+          Submit
+        </button>
+      </form>
 
     </div>
   );

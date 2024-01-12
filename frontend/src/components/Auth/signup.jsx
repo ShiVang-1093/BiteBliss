@@ -1,10 +1,7 @@
-
-
-
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import chef from '../images/chef_login.png';
+import google from '../images/google.png';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -105,11 +102,9 @@ const Signup = () => {
             <hr className="border-coffee" />
           </div>
 
-          <button className="bg-coffee border py-2 w-full rounded-xl mt-3 flex justify-center items-center text-sm hover:scale-105 duration-300 text-yellow">
-            <svg className="mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px">
-              {/* ...path data */}
-            </svg>
-            Register with Google
+          <button className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-around items-center text-sm hover:scale-105 duration-300 text-yellow">
+            <img className='w-5 h-5 ' src={google} alt=''></img>
+              Register with Google
           </button>
 
           {/* <div className="mt-5 text-xs border-b border-coffee py-4 text-coffee">
