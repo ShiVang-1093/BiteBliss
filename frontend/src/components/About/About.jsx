@@ -6,7 +6,6 @@ import FAQ from './FAQ';
 const About = () => {
   return (
     <>
-    {/* <Testimonial/> */}
     <FAQ/>
     <ReviewAndRating/>
     <ContactForm />
