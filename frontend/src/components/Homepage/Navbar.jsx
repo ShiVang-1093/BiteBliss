@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "../images/reslogo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Logo from '../images/logo.png'
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
