@@ -8,7 +8,8 @@ const dbconnection = require('./db');
 
 app.use(express.json());
 
-app.use('/app',require('./routes/Restaurant.route'));
+app.use('/res',require('./routes/Restaurant.route'));
+app.use('/testi',require('./routes/Testimonial.route'));
 
 dbconnection();
 app.listen(PORT,()=>{console.log(`server is running on ${PORT}`)} );
