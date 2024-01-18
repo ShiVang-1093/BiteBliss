@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use('/res',require('./routes/Restaurant.route'));
 app.use('/testi',require('./routes/Testimonial.route'));
+app.use('/faq',require('./routes/FAQ.route'));
 
 dbconnection();
 app.listen(PORT,()=>{console.log(`server is running on ${PORT}`)} );
