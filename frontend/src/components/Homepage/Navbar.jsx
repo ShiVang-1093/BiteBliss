@@ -6,14 +6,13 @@ import Logo from '../images/logo.png'
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false); // Step 1
+  // const [loggedIn, setLoggedIn] = useState(false);
 
   const handleClick = () => setClick(!click);
 
-  const handleLogout = () => {
-    // Handle logout logic here
-    setLoggedIn(false);
-  };
+  // const handleLogout = () => {
+  //   setLoggedIn(false);
+  // };
 
   return (
     <nav className="navbar">
@@ -26,13 +25,12 @@ const NavBar = () => {
         <div className="hamburger-menu" onClick={handleClick}>
           <GiHamburgerMenu />
         </div>
-        {loggedIn ? ( // Step 2
+        {/* {loggedIn ? (
           <div className="nav-menu">
             <div className="nav-item account-logo">
               <img alt="Account" />
               <div className="account-popup">
                 <NavLink
-                  exact
                   to="/Profile"
                   activeClassName="nav-active"
                   className="nav-links"
@@ -41,7 +39,6 @@ const NavBar = () => {
                   Profile
                 </NavLink>
                 <NavLink
-                  exact
                   to="/Orders"
                   activeClassName="nav-active"
                   className="nav-links"
@@ -50,7 +47,6 @@ const NavBar = () => {
                   Orders
                 </NavLink>
                 <NavLink
-                  exact
                   to="/Coupons"
                   activeClassName="nav-active"
                   className="nav-links"
@@ -62,8 +58,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-        ) : (
-          // Step 3
+        ) : ( */}
           <ul className={`nav-menu ${click ? "active" : ""}`}>
             <li className="nav-item">
               <NavLink
@@ -78,7 +73,6 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
                 to="/Restaurants"
                 activeClassName="nav-active"
                 className="nav-links"
@@ -89,7 +83,6 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
                 to="/Coupons"
                 activeClassName="nav-active"
                 className="nav-links"
@@ -100,7 +93,6 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
                 to="/About"
                 activeClassName="nav-active"
                 className="nav-links"
@@ -111,7 +103,6 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
                 to="/Login"
                 activeClassName="nav-active"
                 className="nav-links"
@@ -122,7 +113,6 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                exact
                 to="/Signup"
                 activeClassName="nav-active"
                 className="nav-links"
@@ -132,7 +122,7 @@ const NavBar = () => {
               </NavLink>
             </li>
           </ul>
-        )}
+        
       </div>
     </nav>
   );
