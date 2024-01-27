@@ -8,8 +8,7 @@ const About = () => {
     <>
     <FAQ/>
     <ReviewAndRating/>
-    <ContactForm />
-    
+    <ContactForm /> 
     </>
   )
 }

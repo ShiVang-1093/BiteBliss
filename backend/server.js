@@ -13,7 +13,8 @@ app.use('/testi',require('./routes/Testimonial.route'));
 app.use('/faq',require('./routes/FAQ.route'));
 app.use('/coupons',require('./routes/Coupons.route'));
 app.use('/contact',require('./routes/Contact.route'));
-app.use('/login',require('./routes/Login.route'));
+// app.use('/login',require('./routes/Login.route'));
+app.use('/user',require('./routes/Auth.route'));
 
 dbconnection();
 app.listen(PORT,()=>{console.log(`server is running on ${PORT}`)} );
