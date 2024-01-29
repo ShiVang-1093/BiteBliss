@@ -6,7 +6,6 @@ require("dotenv").config();
 exports.signup = async(req,res) =>{
 
     try{
-
         const {fname,lname,email,password,role} =req.body; 
         const existingUser = await User.findOne({email});
 
@@ -105,6 +104,7 @@ exports.login = async(req,res) =>{
                 httpOnly: true,
             }            
 
+            //send cookie in response: name,value,options
             return res.cookie("token",token,options).status(200).json({
                 success:true,
                 massage:"User logged in successfully",
@@ -112,7 +112,6 @@ exports.login = async(req,res) =>{
                 registeredUser,
             })  
         }
-
         else{
             return res.status(403).json({
                 success:false,
@@ -121,7 +120,6 @@ exports.login = async(req,res) =>{
         }
 
     } 
-
     catch(error){
         console.log(error);
         return res.status(400).json({
