@@ -1,15 +1,65 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import chef from '../images/chef_login.png';
 import google from '../images/google.png';
-
+import isLoggedin from './isLoggedin';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    if (isLoggedin()) {
+      navigate('/');
+    }
+  }, [navigate]);
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    const res = await fetch("http://localhost:4000/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("jwt")
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password
+      })
+    });
+
+    const resJson = await res.json();
+
+    if (res.status === 400 || res.status === 401 || res.status === 403 || !resJson) {
+      window.alert("Invalid Credentials");
+      console.log("Invalid Credentials");
+    } else if (res.status === 200) {
+      window.alert("Login Successful");
+      localStorage.setItem("jwt", resJson.token);
+      console.log("Login Successful");
+      navigate('/');
+    }
+  };
+
+
 
   return (
     <section className="h-screen w-full flex items-center justify-center xs:px-10">
@@ -24,6 +74,9 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+
             />
             <div className="relative">
               <input
@@ -31,6 +84,9 @@ const Login = () => {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +100,8 @@ const Login = () => {
                 {/* ...path data */}
               </svg>
             </div>
-            <button className="bg-coffee rounded-xl text-yellow py-2 px-5 mt-2 hover:scale-105 duration-300">
+            <button className="bg-coffee rounded-xl text-yellow py-2 px-5 mt-2 hover:scale-105 duration-300"
+              onClick= {handleLogin}>
               Login
             </button>
           </form>

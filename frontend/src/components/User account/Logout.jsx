@@ -1,17 +1,18 @@
-import React from 'react';
+// // Logout.js
+// import { useNavigate } from 'react-router-dom';
 
-const Logout=()=> {
-    // const  navigate= useNavigate();
+// const Logout = () => {
+//   const navigate = useNavigate();
 
-    // function handleLogout() {
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('user');
-    //     navigate('/login');
-    // }
+//   const handleLogout = () => {
+//     localStorage.clear();
+//     sessionStorage.clear();
+//     navigate('/Login');
+//     window.alert("Logout Successful");
+//   };
 
-    return (
-        <button>Logout</button>
-    );
-}
+//   handleLogout();
 
-export default Logout;
+// };
+
+// export default Logout;

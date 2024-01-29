@@ -1,29 +1,72 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import chef from '../images/chef_login.png';
 import google from '../images/google.png';
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
     
-    // const [formData, setFormData] = useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     email: '',
-    //     password: '',
-    //     confirmPassword: ''
-    // });
-
-    // const handleChange = e => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // };
-
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    // };
+    const [formData, setFormData] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        // confirmPassword: ''
+    });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+    };
+    const handleChange = e => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    // const handleChange = (event) => {
+    //   const { name, value } = event.target;
+    //   setFormData((prevFormData) => ({
+    //     ...prevFormData,
+    //     [name]: value,
+    //   }));
+    // };
+  
+    const handleSignup = async (event) => {
+      event.preventDefault();
+  
+      console.log('user registered successfully');
+        
+      try {
+        const res = await fetch("http://localhost:4000/user/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fname: formData.firstname,
+            lname: formData.lastname,
+            email: formData.email,
+            password: formData.password,
+            // confirm_password: formData.password,
+            // contactno: formData.contactno,
+          })
+        });
+  
+        const resJson = await res.json();
+        console.log("Resjson : ", resJson);
+  
+        if (res.status === 201) {
+          window.alert("Account successfully created");
+          localStorage.setItem("jwt", resJson.token);
+          console.log("Registered Successful");
+          navigate("/");
+        } else {
+          window.alert(resJson.errors[0]);
+          console.log("An error occurred");
+        }
+      } catch (error) {
+        console.log("An error occurred:", error);
+      }
     };
 
   return (
@@ -39,18 +82,24 @@ const Signup = () => {
               type="firstname"
               name="firstname"
               placeholder="Enter your first name"
+              onChange={handleChange}
+              value={formData.firstname}
             />
             <input
               className="p-2 rounded-xl border"
               type="lastname"
               name="lastname"
               placeholder="Enter your last name"
+              onChange={handleChange}
+              value={formData.lastname}
             />
             <input
               className="p-2 rounded-xl border"
               type="email"
               name="email"
               placeholder="Enter your Email"
+              onChange={handleChange}
+              value={formData.email}
             />
 
             <div className="relative">
@@ -59,6 +108,8 @@ const Signup = () => {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
+                onChange={handleChange}
+              value={formData.password}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,12 +124,12 @@ const Signup = () => {
               </svg>
               </div>
               <div className="relative">
-              <input
+              {/* <input
                 className="p-2 rounded-xl border w-full"
                 type={showPassword ? 'text' : 'confirmpassword'}
                 name="confirmpassword"
                 placeholder="Confirm Password"
-              />
+              /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -91,7 +142,8 @@ const Signup = () => {
                 {/* ...path data */}
               </svg>
             </div>
-            <button className="bg-coffee rounded-xl text-yellow py-2 px-5 mt-2 hover:scale-105 duration-300">
+            <button className="bg-coffee rounded-xl text-yellow py-2 px-5 mt-2 hover:scale-105 duration-300"
+            onClick={handleSignup}>
               Sign Up
             </button>
           </form>
