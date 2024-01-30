@@ -1,32 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [faqs, setFaqs] = useState([]);
 
-  const faqs = [
-    {
-      id: 1,
-      header: "What is Lorem Ipsum?",
-      text: "Lorem Ipsum is simply dummy text...",
-    },
-    {
-      id: 2,
-      header: "Where does it come from?",
-      text: "It is a long established fact...",
-    },
-    {
-      id: 3,
-      header: "Why do we use it?",
-      text: "Contrary to popular belief...",
-    },
-    {
-      id: 4,
-      header: "Where can I get some?",
-      text: "There are many variations of passages...",
-    }
-  ];
+  useEffect(() => {
+    // Fetch FAQ data from the backend when the component mounts
+    fetch('http://localhost:4000/faq/get')
+      .then((response) => response.json())
+      .then((data) => setFaqs(data))
+      .catch((error) => console.error('Error fetching FAQ data:', error));
+  }, []);
 
   const handleToggle = (index) => {
     if (activeIndex === index) {
@@ -42,14 +28,14 @@ const FAQ = () => {
     <div className="mt-[4%] max-w-3xl mr-auto ml-auto p-4 sm:p-7">
       <h1 className="text-4xl font-bold text-center text-coffee mb-[6%]">Frequently asked questions</h1>
       {faqs.map((faq) => (
-        <div className="overflow-hidden mb-5 rounded-xl shadow-2xl" key={faq.id}>
+        <div className="overflow-hidden mb-5 rounded-xl shadow-2xl" key={faq._id}>
           <div className="bg-coffee cursor-pointer flex justify-between items-center p-4"
-            onClick={() => handleToggle(faq.id)}>
-              <h5 className="text-skin text-lg">{faq.header}</h5>
-              <FontAwesomeIcon style={{ transform: activeIndex === faq.id ? 'rotate(180deg)' : '' }} className="text-skin" icon={faChevronDown}/>            
+            onClick={() => handleToggle(faq._id)}>
+              <h5 className="text-skin text-lg">{faq.question}</h5>
+              <FontAwesomeIcon style={{ transform: activeIndex === faq._id ? 'rotate(180deg)' : '' }} className="text-skin" icon={faChevronDown}/>            
           </div>
           <div className="bg-coffee text-skin pl-4 pb-4 text-lg">
-             {activeIndex === faq.id ? `${faq.text}` : ''}
+             {activeIndex === faq._id ? `${faq.answer}` : ''}
           </div>
         </div>
       ))}

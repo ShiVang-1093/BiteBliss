@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
-const { Schema, models, model } = mongoose;
+// const { Schema } = mongoose;
 
-const contactSchema = new Schema({
-    name: {
+const contactSchema = new mongoose.Schema({
+    fname: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 3
+    },
+    lname: {
         type: String,
         required: true,
         trim: true,
@@ -26,10 +32,10 @@ const contactSchema = new Schema({
         trim: true,
         minlength: 5
     },
-    created_by: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }
-}, { timestamps: true });
+    // created_by: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User'
+    // }
+});
 
-module.exports = models.Contact || model('Contact', contactSchema);
+module.exports = mongoose.model('Contact', contactSchema);

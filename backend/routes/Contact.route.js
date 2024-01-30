@@ -6,17 +6,17 @@ const router = express.Router();
 //     isAdmin,
 // } = require('../middlewares');
 
-const {
-    createContact,
-    getContacts,
-    getContact,
-    updateContact,
-    deleteContact }  = require('../controller/Contact.ctr');
+// getContacts,
+//     getContact,
+//     updateContact,
+//     deleteContact
 
-router.get('/get',  getContacts);
-router.get('/get/:id',  getContact);
-router.post('/post',  createContact);
-router.put('/put/:id',  updateContact);
-router.delete('/delete/:id',  deleteContact);
+const { createContact }  = require('../controller/Contact.ctr');
+
+router.post('/post', createContact);
+// router.get('/get',  getContacts);
+// router.get('/get/:id',  getContact);
+// router.put('/put/:id',  updateContact);
+// router.delete('/delete/:id',  deleteContact);
 
 module.exports = router;

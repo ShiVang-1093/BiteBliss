@@ -13,8 +13,8 @@ exports.getAllCoupons = async (req, res) => {
 // Create a new coupon
 exports.createCoupon = async (req, res) => {
     try {
-        const { code, discount } = req.body;
-        const newCoupon = new Coupon({ code, discount });
+        const { restaurantName, discountOffer, speciality } = req.body;
+        const newCoupon = new Coupon({ restaurantName, discountOffer, speciality });
         await newCoupon.save();
         res.status(201).json(newCoupon);
     } catch (error) {
@@ -26,8 +26,8 @@ exports.createCoupon = async (req, res) => {
 exports.updateCoupon = async (req, res) => {
     try {
         const { id } = req.params;
-        const { code, discount } = req.body;
-        const updatedCoupon = await Coupon.findByIdAndUpdate(id, { code, discount }, { new: true });
+        const { restaurantName, discountOffer, speciality } = req.body;
+        const updatedCoupon = await Coupon.findByIdAndUpdate(id, { restaurantName, discountOffer, speciality }, { new: true });
         if (!updatedCoupon) {
             return res.status(404).json({ error: 'Coupon not found' });
         }

@@ -11,7 +11,7 @@ import Coupon from "./components/Coupons/Coupon";
 import Menu from "./components/Restaurants/Res-Menu/Menu";
 import Profile from "./components/User account/Profile";
 import Coupens from "./components/User account/Coupens";
-import Logout from "./components/User account/Logout";
+// import Logout from "./components/User account/Logout";
 
 function App() {
   return (

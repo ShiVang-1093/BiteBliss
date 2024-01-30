@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const couponSchema = new mongoose.Schema({
     restaurantName: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
+        // type: mongoose.Schema.Types.ObjectId,
         ref: 'Restaurant',
         required: true
     },
@@ -11,7 +12,8 @@ const couponSchema = new mongoose.Schema({
         required: true
     },
     speciality: {
-        type: mongoose.Schema.Types.ObjectId,
+        // type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Speciality',
         required: true
     }
