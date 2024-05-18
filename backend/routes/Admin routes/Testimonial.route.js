@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getAllTestimonials, createTestimonial, updateTestimonial, deleteTestimonial } = require('../controller/Testimonial.ctr');
+const {getAllTestimonials, createTestimonial, updateTestimonial, deleteTestimonial } = require('../../controller/Userctr/Testimonial.ctr');
 
 // Define routes for testimonial CRUD operations
 router.get('/get', getAllTestimonials);

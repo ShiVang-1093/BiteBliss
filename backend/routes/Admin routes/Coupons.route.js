@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getAllCoupons, createCoupon, updateCoupon, deleteCoupon } = require('../controller/Coupons.ctr');
+const {getAllCoupons, createCoupon, updateCoupon, deleteCoupon } = require('../../controller/Userctr/Coupons.ctr');
 
 // Define routes for coupons CRUD operations
 router.get('/get', getAllCoupons);

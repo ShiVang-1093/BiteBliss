@@ -1,12 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../model/User");
+const passport = require('passport');
 require("dotenv").config();
 
 exports.signup = async(req,res) =>{
 
     try{
-        const {fname,lname,email,password,role} =req.body; 
+        const {uname,email,password,role} =req.body; 
         const existingUser = await User.findOne({email});
 
         if(existingUser){
@@ -32,8 +33,7 @@ exports.signup = async(req,res) =>{
         }
 
         const newUser = await User.create({
-            fname,
-            lname,
+            uname,
             email,
             password:hashedPassword,
             role,
@@ -42,7 +42,6 @@ exports.signup = async(req,res) =>{
         return res.status(201).json({
             success:true,
             massage:"user created successfully",
-            // data:newUser,
         })
     }
     catch(error){
@@ -128,6 +127,29 @@ exports.login = async(req,res) =>{
         })
     }
 }
+
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+
+passport.use(new GoogleStrategy({
+    clientID:     process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: `http://localhost:${process.env.PORT}/auth/google/callback`,
+    passReqToCallback   : true
+  },
+  function(request, accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
+
+passport.serializeUser((user, done)=> {
+    done(null, user);
+  });
+  
+passport.deserializeUser((user, done)=> {
+    done(null, user);
+  });
 
 // exports.getUser = async (req, res) => {
 //     try {

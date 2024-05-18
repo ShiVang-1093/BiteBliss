@@ -11,7 +11,7 @@ const router = express.Router();
 //     updateContact,
 //     deleteContact
 
-const { createContact }  = require('../controller/Contact.ctr');
+const { createContact }  = require('../../controller/Userctr/Contact.ctr');
 
 router.post('/post', createContact);
 // router.get('/get',  getContacts);

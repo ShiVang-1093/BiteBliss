@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Import the restaurant controller
-const {getAllRestaurants, getRestaurantById, createRestaurant, updateRestaurant, deleteRestaurant } = require('../controller/Restaurant.ctr');
+const {getAllRestaurants, getRestaurantById, createRestaurant, updateRestaurant, deleteRestaurant } = require('../../controller/Userctr/Restaurant.ctr');
 
 // Define routes for restaurant CRUD operations
 router.get('/get', getAllRestaurants);
