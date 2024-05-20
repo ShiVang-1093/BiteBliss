@@ -8,7 +8,7 @@ const FAQ = () => {
 
   useEffect(() => {
     // Fetch FAQ data from the backend when the component mounts
-    fetch('http://localhost:4000/faq/get')
+    fetch('http://localhost:4000/api/v1/user/faqs')
       .then((response) => response.json())
       .then((data) => setFaqs(data))
       .catch((error) => console.error('Error fetching FAQ data:', error));

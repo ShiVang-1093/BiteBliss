@@ -27,7 +27,7 @@ const ContactForm = () => {
     if (loggedin) {
       // If user is logged in, submit the form data to the server
       try {
-        const response = await fetch('http://localhost:4000/contact/post', {
+        const response = await fetch('http://localhost:4000/api/v1/user/contactus', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,17 +48,14 @@ const ContactForm = () => {
         // Handle the error appropriately
       }
     } else {
-      // If user is not logged in, send form details directly to the owner's email
-      const ownerEmail = "Bitebliss.customercare@gmail.com"; // Replace with the actual owner's email
-      const emailBody = `New Contact Form Submission\n\n${JSON.stringify(formData, null, 2)}`;
       
       try {
-        const response = await fetch('http://localhost:4000/contact/post', {
+        const response = await fetch('http://localhost:4000/api/v1/user/contactus', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ ...formData, ownerEmail }), // Include owner's email in the form data
+          body: JSON.stringify({ ...formData }), // Include owner's email in the form data
         });
 
         if (response.ok) {

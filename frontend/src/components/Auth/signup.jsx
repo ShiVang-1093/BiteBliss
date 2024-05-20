@@ -9,8 +9,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
     
     const [formData, setFormData] = useState({
-        firstname: '',
-        lastname: '',
+        uname: '',
         email: '',
         password: '',
         // confirmPassword: ''
@@ -19,17 +18,17 @@ const Signup = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    const handleChange = e => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    // const handleChange = (event) => {
-    //   const { name, value } = event.target;
-    //   setFormData((prevFormData) => ({
-    //     ...prevFormData,
-    //     [name]: value,
-    //   }));
+    // const handleChange = e => {
+    //     setFormData({ ...formData, [e.target.name]: e.target.value });
     // };
+
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    };
   
     const handleSignup = async (event) => {
       event.preventDefault();
@@ -43,8 +42,7 @@ const Signup = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            fname: formData.firstname,
-            lname: formData.lastname,
+            uname: formData.uname,
             email: formData.email,
             password: formData.password,
             // confirm_password: formData.password,
@@ -69,6 +67,30 @@ const Signup = () => {
       }
     };
 
+    const handleGoogleSignup =  () => {
+
+      window.open("http://localhost:4000/auth/google/callback","_self");
+      // try {
+      //   const response = await fetch('http://localhost:4000/auth/google', {
+          
+      //     method: 'GET',
+      //     credentials: 'include'
+      //   });
+  
+      //   if (!response.ok) {
+      //     throw new Error('Failed to initiate Google Sign-In');
+      //   }
+  
+      //   const redirectUrl = await response.text(); // Capture the redirection URL
+  
+      //   // Redirect the user to the Google Sign-In flow using window.location.href
+      //   window.location.href = redirectUrl;
+      // } catch (error) {
+      //   console.error('Error during Google Sign-In:', error);
+      //   // Handle errors appropriately (e.g., display an error message to the user)
+      // }
+    };
+
   return (
     <section className="h-screen w-full flex items-center justify-center xs:px-10">
       <div className="bg-yellow flex w-[90%] md:flex-col-reverse h-auto rounded-2xl shadow-lg max-w-3xl p-5 items-center xs:h-[90%]">
@@ -79,20 +101,20 @@ const Signup = () => {
           <form action="" className="flex flex-col gap-4">
             <input
               className="p-2 mt-5 rounded-xl border"
-              type="firstname"
-              name="firstname"
-              placeholder="Enter your first name"
+              type="username"
+              name="uname"
+              placeholder="Enter user name"
               onChange={handleChange}
-              value={formData.firstname}
+              value={formData.uname}
             />
-            <input
+            {/* <input
               className="p-2 rounded-xl border"
               type="lastname"
               name="lastname"
               placeholder="Enter your last name"
               onChange={handleChange}
               value={formData.lastname}
-            />
+            /> */}
             <input
               className="p-2 rounded-xl border"
               type="email"
@@ -153,10 +175,13 @@ const Signup = () => {
             <p className="text-center text-sm">OR</p>
             <hr className="border-coffee" />
           </div>
-
-          <button className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-around items-center text-sm hover:scale-105 duration-300 text-yellow">
+          
+          <button
+            className="bg-coffee border py-2 w-full rounded-xl mt-5 flex justify-around items-center text-sm hover:scale-105 duration-300 text-yellow"
+            onClick={handleGoogleSignup}
+          >
             <img className='w-5 h-5 ' src={google} alt=''></img>
-              Register with Google
+            Register with Google
           </button>
 
           {/* <div className="mt-5 text-xs border-b border-coffee py-4 text-coffee">

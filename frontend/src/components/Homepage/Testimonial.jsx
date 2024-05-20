@@ -5,11 +5,19 @@ const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/testi/get')
-      .then(response => response.json())
-      .then(data => setTestimonials(data))
-      .catch(error => console.error('Error fetching testimonials:', error));
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/v1/user/testimonials');
+        const data = await response.json();
+        setTestimonials(data);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
+  
 
   const dotClick = (index) => {
     setCurrentPerson(index);

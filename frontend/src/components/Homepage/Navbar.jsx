@@ -16,7 +16,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('jwt');
     sessionStorage.clear();
     navigate('/');
     window.alert("Logout Successful");

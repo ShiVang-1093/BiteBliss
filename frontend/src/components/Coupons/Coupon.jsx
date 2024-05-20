@@ -99,12 +99,19 @@ const Coupon = () => {
   //     },  
   // ];
   useEffect(() => {
-    // Fetch restaurant data from the backend when the component mounts
-    fetch('http://localhost:4000/coupons/get')
-      .then((response) => response.json())
-      .then((data) => setResData(data))
-      .catch((error) => console.error('Error fetching data:', error));
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/v1/user/coupons');
+        const data = await response.json();
+        setResData(data);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
+
 
   const handleAddToCart = (restaurant) => {
     setCartItems((prevCartItems) => [...prevCartItems, restaurant.restaurantName]);

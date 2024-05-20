@@ -4,12 +4,17 @@ import chef from '../images/chef_login.png';
 import google from '../images/google.png';
 import isLoggedin from './isLoggedin';
 
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  // const [role, setRole] = useState(''); // [1] Initialize role state
+    
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  // const { isLoggedIn, login, setRole } = useAuthorization(); // Utilize context
+
 
   const navigate = useNavigate();
 
@@ -38,7 +43,7 @@ const Login = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("jwt")
+        // "Authorization": "Bearer " + localStorage.getItem("jwt")
       },
       body: JSON.stringify({
         email: formData.email,
@@ -47,6 +52,10 @@ const Login = () => {
     });
 
     const resJson = await res.json();
+    // const userRole = resJson.role; // Retrieve user role from response
+    // localStorage.setItem('jwt', resJson.token);
+    // localStorage.setItem('userRole', userRole);
+    // console.log("User Role: ", userRole);
 
     if (res.status === 400 || res.status === 401 || res.status === 403 || !resJson) {
       window.alert("Invalid Credentials");
@@ -55,10 +64,10 @@ const Login = () => {
       window.alert("Login Successful");
       localStorage.setItem("jwt", resJson.token);
       console.log("Login Successful");
+      // setRole(resJson.registeredUser.role);
       navigate('/');
     }
   };
-
 
 
   return (
